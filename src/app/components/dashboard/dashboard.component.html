@@ -1,0 +1,46 @@
+<div *ngIf="mostrarError"  class="alert alert-dismissible alert-danger">
+<div class="text-center">
+  <strong style="color:white">ERROR AL OBTENER EL CLIMA</strong>
+</div>
+</div>
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-lg-6">
+      <img [src]="urlImagen" alt="img_clima" width="300px" height="300px">
+    </div>
+
+
+
+      <div class="col-lg-3">
+          <input type="text" [(ngModel)]="ciudad"
+          class="form-control form-control-lg size mt-5" placeholder="Ingrese Ciudad">
+      </div >
+
+    <button [disabled]="ciudad==''" (click)="obtenerClima()"
+    class="btn btn-primary btn-lg mt-4 size">OBTENER CLIMA</button>
+     <div *ngIf="loading" class="d-flex justify-content-center mt-3">
+
+       <div class="spinner-grow text-primary" role="status"></div>
+       <div class="spinner-grow text-primary" role="status"></div>
+       <div class="spinner-grow text-primary" role="status"></div>
+     </div>
+
+    <div *ngIf="query" class="card mt-3">
+     <div class="card-body">
+      <p><b>Pais: </b> {{ pais }}</p>
+      <p><b>Provincia: </b> {{ provincia }}</p>
+       <p><b>Temperatura: </b>{{ temperatura |  number: '1.2-2' }} ºC</p>
+       <p><b>Humedad: </b>{{ humedad }} %</p>
+       <p><b>Clima: </b>{{ clima }}</p>
+       <p><b>Viento: </b>{{ viento }} Km/h</p>
+     </div>
+    </div>
+   </div>
+
+</div>
+
+
+
+
+
+
